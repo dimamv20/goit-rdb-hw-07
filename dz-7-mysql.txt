@@ -1,0 +1,27 @@
+1. 
+
+SELECT id, year(date) as year ,month(date) as month , day(date) as days, date from orders;
+
+2.
+
+
+SELECT id, 
+DATE_ADD(date, INTERVAL 1 day) AS date_plus_1_day,
+ date 
+FROM orders;
+
+3.
+SELECT id, date, UNIX_TIMESTAMP(date) AS timestamp_seconds
+FROM orders;
+
+
+4.
+
+SELECT count(date) as count_date from orders where date between '1996-07-10 00:00:00' and '1996-10-08 00:00:00'
+
+5.
+ SELECT 
+    id, 
+    date, 
+    JSON_OBJECT('id', id, 'date', date) AS json_data 
+FROM orders;
